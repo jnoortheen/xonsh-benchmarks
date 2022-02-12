@@ -132,14 +132,12 @@ nohup.out
 # OSX hidden directories
 .DS_Store
 
+## asv ##
 # virtualenv
 env/
-
 # bench results
 results/
-
 # cloned repo
 xonsh/
-
 # html preview
 html/

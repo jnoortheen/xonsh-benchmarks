@@ -11,6 +11,9 @@ pyperf = "^2.3.1"
 psutil = "^5.9.0"
 asv = "^0.5.1"
 ptyprocess = "^0.7.0"
+virtualenv = "^20.13.1"
+requests = "^2.27.1"
+tqdm = "^4.62.3"
 
 [tool.poetry.dev-dependencies]
 
@@ -23,8 +26,13 @@ build-backend = "poetry.core.masonry.api"
 # https://github.com/nat-n/poethepoet
 [tool.poe.tasks]
 # run basic benchmark for the current branch
-run = "asv run"
+run = "asv run --profile"
+#
+## run for some latest tags
+bench = { script = "tasks.bench_tags:main()" }
+
 # compare current commit with main branch. It should have commits
-compare = {shell="asv run main..$(git branch --show-current)"}
+compare = { shell = "asv run main..$(git branch --show-current)" }
 # view results
-view = {shell="asv run && asv publish && asv preview"}
+view = { shell = "asv publish && asv preview" }
+push = { shell = "asv publish && asv gh-pages" }
