@@ -1,0 +1,145 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Python template
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+*.pyc
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# dotenv
+.env
+
+# virtualenv
+.venv/
+venv/
+/ENV/
+
+# Spyder project settings
+.spyderproject
+
+# Rope project settings
+.ropeproject
+
+*.py.org
+*.py.orig
+*.html.py
+*.log*
+
+# ignore top level files only
+*.xml/
+_mac/
+
+test_urls.py
+local_test.py
+
+# annotations by monkeytype
+monkeytype.sqlite3
+
+# annotations by pyannotate
+type_info.json
+.todos.md
+logs/
+.pytest_cache/
+
+# tmp files
+.~*
+*.ipynb
+scratch_files/
+
+# redis temp file
+dump.rdb
+
+# reports
+pytest.xml
+pytest-report.xml
+
+# Created by https://www.gitignore.io/api/intellij
+# Edit at https://www.gitignore.io/?templates=intellij
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# pytest-mon generated file
+.testmondata
+
+# scratch files
+.local/
+
+# memory-profiler data
+mprofile_*.dat
+
+# nohup command output
+nohup.out
+# vscode local history plugin
+.history/
+# pprofile output
+*.out
+#cProfile output
+*.prof
+
+# OSX hidden directories
+.DS_Store
+
+# virtualenv
+env/
+
+# bench results
+results/
+
+# cloned repo
+xonsh/
+
+# html preview
+html/
