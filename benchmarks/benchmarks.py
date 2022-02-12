@@ -10,12 +10,12 @@ class TimeSuite:
 
     # def setup(self):
 
-    def time_xonsh_script(self):
+    def time_script(self):
         import subprocess as sp
 
         sp.run(["xonsh", "-c", "echo 1"])
 
-    def time_xonsh_interactive(self):
+    def time_interactive(self):
         from ptyprocess import PtyProcessUnicode as pty
 
         proc = pty.spawn(["xonsh", "--interactive", "--no-rc"])
@@ -24,7 +24,14 @@ class TimeSuite:
         proc.terminate()
 
 
-# class MemSuite:
-#     def mem_xonsh_script(self):
-#         from xonsh.main import main
-#         main(["-c", "echo 1"])
+class MemSuite:
+    def mem_script(self):
+        from xonsh.main import main
+
+        try:
+            main(["-c", "echo 1"])
+        except SystemExit:
+            return
+
+    # def mem_interactive(self):
+    #     pass
