@@ -15,6 +15,7 @@ virtualenv = "^20.13.1"
 requests = "^2.27.1"
 tqdm = "^4.62.3"
 prompt-toolkit = "^3.0.28"
+Pympler = "^1.0.1"
 
 [tool.poetry.dev-dependencies]
 

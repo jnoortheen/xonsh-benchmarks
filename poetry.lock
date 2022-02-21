@@ -111,6 +111,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "pympler"
+version = "1.0.1"
+description = "A development tool to measure, monitor and analyze the memory behavior of Python objects."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "pyperf"
 version = "2.3.1"
 description = "Python module to run and analyze benchmarks"
@@ -202,7 +210,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "27d6f9e288fabbca885cf40e04be6e38d61842e26579dd3fe9980dd8905828b6"
+content-hash = "125a18ebad3e91969b25d2ca912cef0f2ca4ee1be1b68a4f57996e043db8fa0a"
 
 [metadata.files]
 asv = [
@@ -272,6 +280,10 @@ psutil = [
 ptyprocess = [
     {file = "ptyprocess-0.7.0-py2.py3-none-any.whl", hash = "sha256:4b41f3967fce3af57cc7e94b888626c18bf37a083e3651ca8feeb66d492fef35"},
     {file = "ptyprocess-0.7.0.tar.gz", hash = "sha256:5c5d0a3b48ceee0b48485e0c26037c0acd7d29765ca3fbb5cb3831d347423220"},
+]
+pympler = [
+    {file = "Pympler-1.0.1-py3-none-any.whl", hash = "sha256:d260dda9ae781e1eab6ea15bacb84015849833ba5555f141d2d9b7b7473b307d"},
+    {file = "Pympler-1.0.1.tar.gz", hash = "sha256:993f1a3599ca3f4fcd7160c7545ad06310c9e12f70174ae7ae8d4e25f6c5d3fa"},
 ]
 pyperf = [
     {file = "pyperf-2.3.1-py2.py3-none-any.whl", hash = "sha256:d4063342373b18fcfa4d28b8f9fd1443012eb8db04b5cb06c1936c0489e2456e"},
