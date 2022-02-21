@@ -207,10 +207,32 @@ category = "main"
 optional = false
 python-versions = "*"
 
+[[package]]
+name = "xonsh"
+version = "0.11.0"
+description = "Python-powered, cross-platform, Unix-gazing shell"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+develop = false
+
+[package.extras]
+full = ["prompt-toolkit (>=3)", "pyperclip", "pygments (>=2.2)", "gnureadline", "distro", "setproctitle"]
+linux = ["distro"]
+mac = ["gnureadline"]
+proctitle = ["setproctitle"]
+ptk = ["prompt-toolkit (>=3.0)", "pyperclip"]
+pygments = ["pygments (>=2.2)"]
+zipapp = ["importlib-resources"]
+
+[package.source]
+type = "directory"
+url = "xsh"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "125a18ebad3e91969b25d2ca912cef0f2ca4ee1be1b68a4f57996e043db8fa0a"
+content-hash = "0cc5d97637ce94734f61ff2b0bf2dcdf69b6b66fb6cdbb2a391dbd2df2fe63f4"
 
 [metadata.files]
 asv = [
@@ -313,3 +335,4 @@ wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
     {file = "wcwidth-0.2.5.tar.gz", hash = "sha256:c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"},
 ]
+xonsh = []
