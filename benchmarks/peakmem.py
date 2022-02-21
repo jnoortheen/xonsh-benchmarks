@@ -38,38 +38,38 @@ def _mock_rl():
         yield inp
 
 
-def peakmem_script():
-    from xonsh.main import main
+class PeakmemSuit:
+    timeout = 5.0
 
-    try:
-        main(["-c", "echo 1"])
-    except SystemExit:
-        return
-
-
-def peakmem_interactive_rl():
-    with _mock_rl():
-        from xonsh.main import main
+    def peakmem_script(self):
+        from xonsh.main import main, setup
 
         try:
-            main(["-i", "--shell=rl", "--no-rc"])
+            setup()
+            main(["-c", "echo 1"])
         except SystemExit:
             return
 
+    def peakmem_interactive_rl(self):
+        with _mock_rl():
+            from xonsh.main import main
 
-peakmem_interactive_rl.timeout = 10.0  # in seconds
+            try:
+                main(["-i", "--shell=rl", "--no-rc"])
+            except SystemExit:
+                return
 
+    def peakmem_interactive_ptk(self):
+        with _inp_exit():
+            from xonsh.main import main
 
-def peakmem_interactive_ptk():
-    with _inp_exit():
-        from xonsh.main import main
-
-        try:
-            main(["-i", "--shell=ptk", "--no-rc"])
-        except SystemExit:
-            return
+            try:
+                main(["-i", "--shell=ptk", "--no-rc"])
+            except SystemExit:
+                return
 
 
 if __name__ == "__main__":
-    peakmem_interactive_ptk()
-    peakmem_interactive_rl()
+    p = PeakmemSuit()
+    p.peakmem_interactive_ptk()
+    p.peakmem_interactive_rl()

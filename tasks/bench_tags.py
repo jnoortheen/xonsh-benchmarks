@@ -18,7 +18,14 @@ def get_tags():
 def main():
     tags = list(get_tags())
     for tag in tqdm(tags):
-        args = ["asv", "run", "--skip-existing", "--profile", f"{tag}^!"]
+        args = [
+            "asv",
+            "run",
+            "--skip-existing",
+            "--show-stderr",
+            "--profile",
+            f"{tag}^!",
+        ]
         print(f"${args}")
         sp.run(args)
 

@@ -1,5 +1,7 @@
 """Timing benchmarks"""
 
+timeout = 5.0
+
 
 def time_script():
     import subprocess as sp

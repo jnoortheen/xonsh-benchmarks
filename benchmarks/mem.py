@@ -24,9 +24,12 @@ def _in_detail(more_info=False):
     return asizeof.asizeof(p)
 
 
-def track_parser_size():
-    """use pympler to the size of the parser including all of its attributes"""
-    return _in_detail()
+class TrackSuit:
+    unit = "bytes"
+
+    def track_parser_size(self):
+        """use pympler to the size of the parser including all of its attributes"""
+        return _in_detail()
 
 
 if __name__ == "__main__":
