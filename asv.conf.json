@@ -18,7 +18,7 @@
   // uninstalling the project. See asv.conf.json documentation.
   //
    "install_command": [
-     "in-dir={env_dir} python -mpip install {wheel_file} ptyprocess",
+     "in-dir={env_dir} python -mpip install {wheel_file} ptyprocess prompt_toolkit",
    ],
   // "uninstall_command": ["return-code=any python -mpip uninstall -y {project}"],
   // "build_command": [

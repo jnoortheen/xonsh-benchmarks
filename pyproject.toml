@@ -14,6 +14,7 @@ ptyprocess = "^0.7.0"
 virtualenv = "^20.13.1"
 requests = "^2.27.1"
 tqdm = "^4.62.3"
+prompt-toolkit = "^3.0.28"
 
 [tool.poetry.dev-dependencies]
 
@@ -26,13 +27,15 @@ build-backend = "poetry.core.masonry.api"
 # https://github.com/nat-n/poethepoet
 [tool.poe.tasks]
 # run basic benchmark for the current branch
-run = "asv run --profile"
+run = "asv run --profile --show-stderr"
 #
 ## run for some latest tags
 bench = { script = "tasks.bench_tags:main()" }
 
-# compare current commit with main branch. It should have commits
+# compare current commit with main branch. It should have commits.
+# this can be helpful during development. set the repo path to local folder and test.
 compare = { shell = "asv run main..$(git branch --show-current)" }
+
 # view results
 view = { shell = "asv publish && asv preview" }
-push = { shell = "asv publish && asv gh-pages" }
+push = ["bench", { shell = "asv publish && asv gh-pages" }]
