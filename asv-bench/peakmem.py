@@ -1,5 +1,9 @@
 """Measure overall memory usage"""
+import sys
+from pathlib import Path
 
+# so that bench_helpers import will work
+sys.path.append(str(Path(__file__).parent.parent))
 
 timeout = 5.0
 

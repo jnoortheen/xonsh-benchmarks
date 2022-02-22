@@ -16,7 +16,7 @@ requests = "^2.27.1"
 tqdm = "^4.62.3"
 prompt-toolkit = "^3.0.28"
 Pympler = "^1.0.1"
-xonsh = {path = "xsh"}
+xonsh = "^0.11.0"
 
 [tool.poetry.dev-dependencies]
 
@@ -36,7 +36,7 @@ bench = { script = "tasks.bench_tags:main()" }
 
 # compare current commit with main branch. It should have commits.
 # this can be helpful during development. set the repo path to local folder and test.
-compare = { shell = "asv run main..$(git branch --show-current)" }
+compare = { shell = "asv continuous main $(git branch --show-current)" }
 
 # view results
 view = { shell = "asv publish && asv preview" }
