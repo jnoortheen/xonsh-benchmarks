@@ -73,6 +73,15 @@ def shell_ptk():
             return
 
 
+def xonsh_parser():
+    from xonsh.parser import Parser
+
+    p = Parser()
+    # wait for thread to finish
+    p.parse("1")
+    return p
+
+
 if __name__ == "__main__":
     # change the function to one you want and use pycharm's profile option to run
     import os
