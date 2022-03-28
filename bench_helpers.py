@@ -82,6 +82,14 @@ def xonsh_parser():
     return p
 
 
+def completion_parser():
+    from xonsh.parsers.completion_context import CompletionContextParser
+
+    p = CompletionContextParser()
+    p.parse("1", cursor_index=1)
+    return p
+
+
 if __name__ == "__main__":
     # change the function to one you want and use pycharm's profile option to run
     import os
