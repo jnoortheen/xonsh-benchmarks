@@ -1,10 +1,12 @@
 from pathlib import Path
 import contextlib
-import linecache
 import tracemalloc
 
 
 def display_top(snapshot, key_type="lineno", limit=10, file=None):
+    import linecache
+
+    # todo: display all values greater than 5KiB instead of top 10/50
     snapshot = snapshot.filter_traces(
         (
             tracemalloc.Filter(False, "<frozen importlib._bootstrap>"),
@@ -13,7 +15,7 @@ def display_top(snapshot, key_type="lineno", limit=10, file=None):
     )
     top_stats = snapshot.statistics(key_type)
 
-    print("Top %s lines" % limit, file=file)
+    print(f"Top {limit} lines. {key_type=}", file=file)
     for index, stat in enumerate(top_stats[:limit], 1):
         frame = stat.traceback[0]
         print(
@@ -60,7 +62,7 @@ def get_vcs_mark():
 
 @contextlib.contextmanager
 def trace_memory(dest: Path, name: str, ts: str):
-    tracemalloc.start()
+    tracemalloc.start(25)
     yield
     snap = tracemalloc.take_snapshot()
 
@@ -69,7 +71,9 @@ def trace_memory(dest: Path, name: str, ts: str):
 
     out = dest / f"{ts}.md"
     with out.open("w") as fw:
-        display_top(snap, file=fw, limit=40)
+        display_top(snap, file=fw, limit=100, key_type="traceback")
+        fw.write("\n\n\n===----=====")
+        display_top(snap, file=fw, limit=100)
     print(f"written to {out}")
     tracemalloc.stop()
 
