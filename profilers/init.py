@@ -1,5 +1,6 @@
+import importlib
+import pkgutil
 from pathlib import Path
-import contextlib
 
 
 def get_timestamp():
@@ -27,54 +28,23 @@ def get_vcs_mark():
         return branch.stdout.strip() + "-" + commit.stdout.strip()
 
 
-@contextlib.contextmanager
-def pyinstr_profiler(dest: Path, name: str, ts: str):
-    from pyinstrument import Profiler
-
-    profiler = Profiler()
-    profiler.start()
-    yield
-    profiler.stop()
-
-    dest = dest / name
-    dest.mkdir(exist_ok=True)
-
-    out = dest / f"{ts}.html"
-    out.write_text(profiler.output_html())
-
-
-@contextlib.contextmanager
-def yappi_profiler(dest: Path, name: str, ts: str):
-    import yappi
-
-    yappi.set_clock_type("cpu")  # Use set_clock_type("wall") for wall time
-    yappi.start()
-    yield
-
-    func_stats = yappi.get_func_stats()
-
-    dest = dest / name
-    dest.mkdir(exist_ok=True)
-
-    # use snakeviz or such packages to view
-    func_stats.save(dest / f"{ts}.pstat", "pstat")
-
-    # func_stats.save(dest / f"{name}-funcs.grind", "callgrind")
-    with (dest / f"{ts}.txt").open("w") as fw:
-        func_stats.print_all(fw)
-        yappi.get_thread_stats().print_all(fw)
-
-
 def bench(fn_name: str, dest: Path, ts: str):
     import bench_helpers
 
     fn = getattr(bench_helpers, fn_name)
 
-    profiler = pyinstr_profiler
-    if "yappi" in str(dest):
-        profiler = yappi_profiler
-    with profiler(dest, fn_name, ts):
+    module = importlib.import_module(f'profilers.{dest.name}')
+    profile = getattr(module, "profile")
+    with profile(dest, fn_name, ts):
         fn()
+
+
+def get_profilers():
+    import profilers
+    import os
+    for module in pkgutil.iter_modules([os.path.dirname(profilers.__file__)]):
+        if module.name != "init":
+            yield module.name
 
 
 def main():
@@ -86,12 +56,12 @@ def main():
     if not args:  # just the file name
         import subprocess as sp
 
-        for typ in ["pyinstrument", "yappi"]:
+        for typ in get_profilers():
             ts = get_timestamp()
             if branch := get_vcs_mark():
                 ts = branch
 
-            dest = Path(__file__).parent / "html" / typ
+            dest = Path(__file__).parent.parent / "results" / typ
             dest.mkdir(parents=True, exist_ok=True)
 
             for fn in ["script_echo", "shell_rl", "shell_ptk"]:
