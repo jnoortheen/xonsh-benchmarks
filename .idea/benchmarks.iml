@@ -7,6 +7,9 @@
       <excludeFolder url="file://$MODULE_DIR$/results" />
       <excludeFolder url="file://$MODULE_DIR$/xonsh" />
     </content>
+    <content url="file://$MODULE_DIR$/../exts/django">
+      <sourceFolder url="file://$MODULE_DIR$/../exts/django" isTestSource="false" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

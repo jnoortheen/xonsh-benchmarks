@@ -95,5 +95,7 @@ if __name__ == "__main__":
     import os
 
     os.environ["XONSH_NO_AMALGAMATE"] = "1"
+
     # shell_ptk()
     script_echo()
+    print("done out")
