@@ -16,10 +16,22 @@ def _in_detail(more_info=False):
     p = _get_parser()
 
     if more_info:
-        print(asizeof.asized(p, detail=2).format())
+        # print(asizeof.asized(p, detail=2).format())
         # print detailed memory usage of the ply yacc
         print(asizeof.asized(p.parser, detail=2).format())
 
+        # print(
+        #     "..... \n\t action -> \n",
+        #     asizeof.asized(p.parser.action, detail=1).format(),
+        # )
+
+        print(
+            ".....\n\t top action value -> \n",
+            asizeof.asized(p.parser.action[1282], detail=1).format(),
+        )
+
+    # 1 - fresh 0.12.1 -            4,991,448
+    # 2 - MiniProduction slots -    4,864,744       - saved 100kB
     # size of the combined object in bytes
     return asizeof.asizeof(p)
 

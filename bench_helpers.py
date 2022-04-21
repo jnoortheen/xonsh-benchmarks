@@ -44,6 +44,15 @@ def _mock_rl():
             yield inp, out, err
 
 
+def xonsh_parser():
+    from xonsh.parser import Parser
+
+    p = Parser()
+    # wait for thread to finish
+    p.parse("1")
+    return p
+
+
 def script_echo():
     from xonsh.main import main as xmain
 
@@ -71,15 +80,6 @@ def shell_ptk():
             main(["-i", "--shell=ptk", "--no-rc"])
         except SystemExit:
             return
-
-
-def xonsh_parser():
-    from xonsh.parser import Parser
-
-    p = Parser()
-    # wait for thread to finish
-    p.parse("1")
-    return p
 
 
 def completion_parser():

@@ -1,0 +1,8 @@
+%import python (compound_stmt, single_input, file_input, eval_input, test, suite, _NEWLINE, _INDENT, _DEDENT, COMMENT)
+%extend compound_stmt: match_stmt
+match_stmt: "match" test ":" cases
+cases: _NEWLINE _INDENT case+ _DEDENT
+case: "case" test ":" suite // test is not quite correct.
+%ignore /[\t \f]+/          // WS
+%ignore /\\[\t \f]*\r?\n/   // LINE_CONT
+%ignore COMMENT
