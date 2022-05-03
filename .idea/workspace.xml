@@ -6,21 +6,7 @@
   <component name="BlackConnectSettings" triggerOnEachSave="true" />
   <component name="ChangeListManager">
     <list default="true" id="cc9b28fa-2693-49d6-a55d-fabe236a3233" name="Changes" comment="feat: add scalene">
-      <change afterPath="$PROJECT_DIR$/array_size.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bench_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_parser_frameworks/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_parser_frameworks/lark/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_parser_frameworks/lark/grammar.lark" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_parser_frameworks/lark/parse_py.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_parser_frameworks/lark/sample.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_parser_frameworks/results.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/benchmarks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/benchmarks.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asv-bench/mem.py" beforeDir="false" afterPath="$PROJECT_DIR$/asv-bench/mem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bench_helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/bench_helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trace-memory.py" beforeDir="false" afterPath="$PROJECT_DIR$/trace-memory.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,6 +187,8 @@
       <workItem from="1650442394658" duration="1045000" />
       <workItem from="1650443620922" duration="1052000" />
       <workItem from="1650513543975" duration="4875000" />
+      <workItem from="1650620758001" duration="1634000" />
+      <workItem from="1650627386105" duration="1435000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add scalene">
       <created>1649757035642</created>
